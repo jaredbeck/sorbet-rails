@@ -9,6 +9,9 @@ class SorbetRails::ModelPlugins::EnumerableCollections < SorbetRails::ModelPlugi
     model_relation_class_rbi = root.create_class(self.model_relation_class_name)
     create_enumerable_methods_for(model_relation_class_rbi)
 
+    model_assoc_relation_rbi = root.create_class(self.model_assoc_relation_class_name)
+    create_enumerable_methods_for(model_assoc_relation_rbi)
+
     model_assoc_proxy_class_rbi = root.create_class(self.model_assoc_proxy_class_name)
     create_enumerable_methods_for(model_assoc_proxy_class_rbi)
 
