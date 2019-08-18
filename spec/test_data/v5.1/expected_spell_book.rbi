@@ -2,6 +2,28 @@
 # Please rerun rake rails_rbi:models[SpellBook] to regenerate.
 
 # typed: strong
+module SpellBook::EnumInstanceMethods
+  extend T::Sig
+
+  sig { returns(T::Boolean) }
+  def unclassified?; end
+
+  sig { void }
+  def unclassified!; end
+
+  sig { returns(T::Boolean) }
+  def biology?; end
+
+  sig { void }
+  def biology!; end
+
+  sig { returns(T::Boolean) }
+  def dark_art?; end
+
+  sig { void }
+  def dark_art!; end
+end
+
 module SpellBook::ActiveRelation_WhereNot
   sig { params(opts: T.untyped, rest: T.untyped).returns(T.self_type) }
   def not(opts, *rest); end
@@ -9,6 +31,15 @@ end
 
 module SpellBook::GeneratedAttributeMethods
   extend T::Sig
+
+  sig { returns(String) }
+  def book_type; end
+
+  sig { params(value: T.any(Integer, String, Symbol)).void }
+  def book_type=(value); end
+
+  sig { returns(T::Boolean) }
+  def book_type?; end
 
   sig { returns(Integer) }
   def id; end
@@ -66,14 +97,24 @@ module SpellBook::CustomFinderMethods
 end
 
 class SpellBook < ApplicationRecord
+  include SpellBook::EnumInstanceMethods
   include SpellBook::GeneratedAttributeMethods
   include SpellBook::GeneratedAssociationMethods
   extend SpellBook::CustomFinderMethods
   extend T::Sig
   extend T::Generic
 
+  sig { returns(T::Hash[T.any(String, Symbol), Integer]) }
+  def self.book_types; end
+
   sig { params(args: T.untyped).returns(SpellBook::ActiveRecord_Relation) }
-  def self.recent(*args); end
+  def self.biology(*args); end
+
+  sig { params(args: T.untyped).returns(SpellBook::ActiveRecord_Relation) }
+  def self.dark_art(*args); end
+
+  sig { params(args: T.untyped).returns(SpellBook::ActiveRecord_Relation) }
+  def self.unclassified(*args); end
 
   sig { returns(SpellBook::ActiveRecord_Relation) }
   def self.all; end
@@ -232,7 +273,13 @@ class SpellBook::ActiveRecord_Relation < ActiveRecord::Relation
   Elem = type_member(fixed: SpellBook)
 
   sig { params(args: T.untyped).returns(SpellBook::ActiveRecord_Relation) }
-  def recent(*args); end
+  def biology(*args); end
+
+  sig { params(args: T.untyped).returns(SpellBook::ActiveRecord_Relation) }
+  def dark_art(*args); end
+
+  sig { params(args: T.untyped).returns(SpellBook::ActiveRecord_Relation) }
+  def unclassified(*args); end
 
   sig { returns(SpellBook::ActiveRecord_Relation) }
   def all; end
@@ -400,7 +447,13 @@ class SpellBook::ActiveRecord_AssociationRelation < ActiveRecord::AssociationRel
   Elem = type_member(fixed: SpellBook)
 
   sig { params(args: T.untyped).returns(SpellBook::ActiveRecord_AssociationRelation) }
-  def recent(*args); end
+  def biology(*args); end
+
+  sig { params(args: T.untyped).returns(SpellBook::ActiveRecord_AssociationRelation) }
+  def dark_art(*args); end
+
+  sig { params(args: T.untyped).returns(SpellBook::ActiveRecord_AssociationRelation) }
+  def unclassified(*args); end
 
   sig { returns(SpellBook::ActiveRecord_AssociationRelation) }
   def all; end
@@ -567,7 +620,13 @@ class SpellBook::ActiveRecord_Associations_CollectionProxy < ActiveRecord::Assoc
   Elem = type_member(fixed: SpellBook)
 
   sig { params(args: T.untyped).returns(SpellBook::ActiveRecord_AssociationRelation) }
-  def recent(*args); end
+  def biology(*args); end
+
+  sig { params(args: T.untyped).returns(SpellBook::ActiveRecord_AssociationRelation) }
+  def dark_art(*args); end
+
+  sig { params(args: T.untyped).returns(SpellBook::ActiveRecord_AssociationRelation) }
+  def unclassified(*args); end
 
   sig { returns(SpellBook::ActiveRecord_AssociationRelation) }
   def all; end

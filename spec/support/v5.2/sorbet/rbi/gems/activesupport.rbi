@@ -2130,6 +2130,19 @@ end
 module ActiveSupport::Benchmarkable
   def benchmark(message = nil, options = nil); end
 end
+module ActiveSupport::Configurable
+  def config; end
+  extend ActiveSupport::Concern
+end
+class ActiveSupport::Configurable::Configuration < ActiveSupport::InheritableOptions
+  def compile_methods!; end
+  def self.compile_methods!(keys); end
+end
+module ActiveSupport::Configurable::ClassMethods
+  def config; end
+  def config_accessor(*names); end
+  def configure; end
+end
 class ActiveSupport::Cache::MemoryStore < ActiveSupport::Cache::Store
   def cached_size(key, entry); end
   def cleanup(options = nil); end
@@ -2151,17 +2164,4 @@ class ActiveSupport::Digest
   def self.hash_digest_class; end
   def self.hash_digest_class=(klass); end
   def self.hexdigest(arg); end
-end
-module ActiveSupport::Configurable
-  def config; end
-  extend ActiveSupport::Concern
-end
-class ActiveSupport::Configurable::Configuration < ActiveSupport::InheritableOptions
-  def compile_methods!; end
-  def self.compile_methods!(keys); end
-end
-module ActiveSupport::Configurable::ClassMethods
-  def config; end
-  def config_accessor(*names); end
-  def configure; end
 end

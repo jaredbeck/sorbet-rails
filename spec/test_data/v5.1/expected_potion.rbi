@@ -29,9 +29,6 @@ class Potion < ApplicationRecord
   extend T::Sig
   extend T::Generic
 
-  sig { params(args: T.untyped).returns(Potion::ActiveRecord_Relation) }
-  def self.recent(*args); end
-
   sig { returns(Potion::ActiveRecord_Relation) }
   def self.all; end
 
@@ -187,9 +184,6 @@ class Potion::ActiveRecord_Relation < ActiveRecord::Relation
   extend T::Sig
   extend T::Generic
   Elem = type_member(fixed: Potion)
-
-  sig { params(args: T.untyped).returns(Potion::ActiveRecord_Relation) }
-  def recent(*args); end
 
   sig { returns(Potion::ActiveRecord_Relation) }
   def all; end
@@ -356,9 +350,6 @@ class Potion::ActiveRecord_AssociationRelation < ActiveRecord::AssociationRelati
   extend T::Generic
   Elem = type_member(fixed: Potion)
 
-  sig { params(args: T.untyped).returns(Potion::ActiveRecord_AssociationRelation) }
-  def recent(*args); end
-
   sig { returns(Potion::ActiveRecord_AssociationRelation) }
   def all; end
 
@@ -522,9 +513,6 @@ class Potion::ActiveRecord_Associations_CollectionProxy < ActiveRecord::Associat
   extend T::Sig
   extend T::Generic
   Elem = type_member(fixed: Potion)
-
-  sig { params(args: T.untyped).returns(Potion::ActiveRecord_AssociationRelation) }
-  def recent(*args); end
 
   sig { returns(Potion::ActiveRecord_AssociationRelation) }
   def all; end

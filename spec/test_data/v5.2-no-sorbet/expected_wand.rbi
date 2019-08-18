@@ -213,9 +213,6 @@ class Wand < ApplicationRecord
   def self.phoenix_feather(*args); end
 
   sig { params(args: T.untyped).returns(Wand::ActiveRecord_Relation) }
-  def self.recent(*args); end
-
-  sig { params(args: T.untyped).returns(Wand::ActiveRecord_Relation) }
   def self.unicorn_tail_hair(*args); end
 
   sig { returns(Wand::ActiveRecord_Relation) }
@@ -385,9 +382,6 @@ class Wand::ActiveRecord_Relation < ActiveRecord::Relation
 
   sig { params(args: T.untyped).returns(Wand::ActiveRecord_Relation) }
   def phoenix_feather(*args); end
-
-  sig { params(args: T.untyped).returns(Wand::ActiveRecord_Relation) }
-  def recent(*args); end
 
   sig { params(args: T.untyped).returns(Wand::ActiveRecord_Relation) }
   def unicorn_tail_hair(*args); end
@@ -567,9 +561,6 @@ class Wand::ActiveRecord_AssociationRelation < ActiveRecord::AssociationRelation
   def phoenix_feather(*args); end
 
   sig { params(args: T.untyped).returns(Wand::ActiveRecord_AssociationRelation) }
-  def recent(*args); end
-
-  sig { params(args: T.untyped).returns(Wand::ActiveRecord_AssociationRelation) }
   def unicorn_tail_hair(*args); end
 
   sig { returns(Wand::ActiveRecord_AssociationRelation) }
@@ -744,9 +735,6 @@ class Wand::ActiveRecord_Associations_CollectionProxy < ActiveRecord::Associatio
 
   sig { params(args: T.untyped).returns(Wand::ActiveRecord_AssociationRelation) }
   def phoenix_feather(*args); end
-
-  sig { params(args: T.untyped).returns(Wand::ActiveRecord_AssociationRelation) }
-  def recent(*args); end
 
   sig { params(args: T.untyped).returns(Wand::ActiveRecord_AssociationRelation) }
   def unicorn_tail_hair(*args); end
