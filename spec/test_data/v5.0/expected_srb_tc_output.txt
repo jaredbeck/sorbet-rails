@@ -1,85 +1,50 @@
-sorbet_test_cases.rb:15: Revealed type: `SpellBook::ActiveRecord_Associations_CollectionProxy` https://srb.help/7014
-    15 |T.reveal_type(wizard.spell_books) # SpellBook::CollectionProxy
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  From:
-    sorbet_test_cases.rb:15:
-    15 |T.reveal_type(wizard.spell_books) # SpellBook::CollectionProxy
-                      ^^^^^^^^^^^^^^^^^^
+sorbet/rbi/sorbet-typed/lib/activerecord/all/activerecord.rbi:792: Redefining constant `ActiveRecord::Type::Value` https://srb.help/4012
+     792 |class ActiveRecord::Type::Value
+     793 |  extend T::Sig
+     794 |
+     795 |  sig { params(args: T.untyped).void }
+     796 |  def initialize(args); end
+     797 |
+     798 |  sig { params(value: T.untyped).returns(T.untyped) }
+     799 |  def cast(value); end
+     800 |end
+    sorbet/rbi/hidden-definitions/hidden.rbi:2780: Previous definition
+    2780 |ActiveRecord::Type::Value = ActiveModel::Type::Value
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-sorbet_test_cases.rb:20: Revealed type: `Wizard::ActiveRecord_Relation` https://srb.help/7014
-    20 |T.reveal_type(Wizard.all) # Wizard::ActiveRecord_Relation
-        ^^^^^^^^^^^^^^^^^^^^^^^^^
-  From:
-    sorbet_test_cases.rb:20:
-    20 |T.reveal_type(Wizard.all) # Wizard::ActiveRecord_Relation
-                      ^^^^^^^^^^
+sorbet/rbi/sorbet-typed/lib/activerecord/all/activerecord.rbi:802: Redefining constant `ActiveRecord::Type::Boolean` https://srb.help/4012
+     802 |class ActiveRecord::Type::Boolean < ActiveRecord::Type::Value
+     803 |  extend T::Sig
+     804 |
+     805 |  sig { params(args: T.untyped).void }
+     806 |  def initialize(args = nil); end
+     807 |
+     808 |  sig { params(value: T.untyped).returns(T.nilable(T::Boolean)) }
+     809 |  def cast(value); end
+     810 |end
+    sorbet/rbi/hidden-definitions/hidden.rbi:2754: Previous definition
+    2754 |ActiveRecord::Type::Boolean = ActiveModel::Type::Boolean
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-sorbet_test_cases.rb:24: Revealed type: `Wizard::ActiveRecord_Relation` https://srb.help/7014
-    24 |T.reveal_type(Wizard.recent)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  From:
-    sorbet_test_cases.rb:24:
-    24 |T.reveal_type(Wizard.recent)
-                      ^^^^^^^^^^^^^
+sorbet/rbi/sorbet-typed/lib/activerecord/all/activerecord.rbi:882: Redefining constant `ActiveRecord::UnknownAttributeError` https://srb.help/4012
+     882 |  class UnknownAttributeError < NoMethodError; end
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    sorbet/rbi/hidden-definitions/hidden.rbi:2782: Previous definition
+    2782 |ActiveRecord::UnknownAttributeError = ActiveModel::UnknownAttributeError
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-sorbet_test_cases.rb:28: Revealed type: `Wizard::ActiveRecord_Relation` https://srb.help/7014
-    28 |T.reveal_type(Wizard.Gryffindor)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  From:
-    sorbet_test_cases.rb:28:
-    28 |T.reveal_type(Wizard.Gryffindor)
-                      ^^^^^^^^^^^^^^^^^
-
-sorbet_test_cases.rb:32: Revealed type: `Wizard::ActiveRecord_Relation` https://srb.help/7014
-    32 |T.reveal_type(Wizard.Gryffindor.recent)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  From:
-    sorbet_test_cases.rb:32:
-    32 |T.reveal_type(Wizard.Gryffindor.recent)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^
-
-sorbet_test_cases.rb:34: Revealed type: `Wizard::ActiveRecord_Relation` https://srb.help/7014
-    34 |T.reveal_type(Wizard.Gryffindor.recent.unscoped)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  From:
-    sorbet_test_cases.rb:34:
-    34 |T.reveal_type(Wizard.Gryffindor.recent.unscoped)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-sorbet_test_cases.rb:38: Revealed type: `Wizard::ActiveRecord_Relation` https://srb.help/7014
-    38 |T.reveal_type(Wizard.where(id: 1)) # Wizard::Relation
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  From:
-    sorbet_test_cases.rb:38:
-    38 |T.reveal_type(Wizard.where(id: 1)) # Wizard::Relation
-                      ^^^^^^^^^^^^^^^^^^^
-
-sorbet_test_cases.rb:40: Revealed type: `Wizard::ActiveRecord_Relation` https://srb.help/7014
-    40 |T.reveal_type(Wizard.preload(:spell_books)) # Wizard::Relation
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  From:
-    sorbet_test_cases.rb:40:
-    40 |T.reveal_type(Wizard.preload(:spell_books)) # Wizard::Relation
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-sorbet_test_cases.rb:42: Revealed type: `Wizard::ActiveRecord_Relation` https://srb.help/7014
-    42 |T.reveal_type(Wizard.eager_load(:spell_books)) # Wizard::Relation
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  From:
-    sorbet_test_cases.rb:42:
-    42 |T.reveal_type(Wizard.eager_load(:spell_books)) # Wizard::Relation
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-sorbet_test_cases.rb:44: Revealed type: `Wizard::ActiveRecord_Relation` https://srb.help/7014
-    44 |T.reveal_type(Wizard.order(:id)) # Wizard::Relation
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  From:
-    sorbet_test_cases.rb:44:
-    44 |T.reveal_type(Wizard.order(:id)) # Wizard::Relation
-                      ^^^^^^^^^^^^^^^^^
+sorbet/rbi/sorbet-typed/lib/activerecord/all/activerecord.rbi:911: Unable to resolve constant `TableDefinition` https://srb.help/5002
+     911 |      blk: T.nilable(T.proc.params(t: ActiveRecord::ConnectionAdapters::TableDefinition).void)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    sorbet/rbi/gems/activerecord.rbi:3440: Did you mean: `ActiveRecord::Migration::Compatibility::FourTwoShared::TableDefinition`?
+    3440 |module ActiveRecord::Migration::Compatibility::FourTwoShared::TableDefinition
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    sorbet/rbi/gems/activerecord.rbi:3543: Did you mean: `ActiveRecord::TableMetadata`?
+    3543 |class ActiveRecord::TableMetadata
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 sorbet_test_cases.rb:95: The typechecker was unable to infer the type of the asserted value https://srb.help/7007
-    95 |  T.assert_type!(w, Wizard) # TODO this doesn't work on Rails 4.2 or 5.0
+    95 |  T.assert_type!(w, Wizard)
           ^^^^^^^^^^^^^^^^^^^^^^^^^
   Got T.untyped originating from:
     sorbet_test_cases.rb:94:
@@ -88,11 +53,20 @@ sorbet_test_cases.rb:95: The typechecker was unable to infer the type of the ass
   You may need to add additional `sig` annotations
 
 sorbet_test_cases.rb:106: The typechecker was unable to infer the type of the asserted value https://srb.help/7007
-     106 |  T.assert_type!(sp, SpellBook) # TODO this doesn't work on Rails 4.2 or 5.0
+     106 |  T.assert_type!(sp, SpellBook)
             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   Got T.untyped originating from:
     sorbet_test_cases.rb:105:
      105 |wizard.spell_books.map do |sp|
                                      ^^
   You may need to add additional `sig` annotations
-Errors: 12
+
+sorbet_test_cases.rb:117: The typechecker was unable to infer the type of the asserted value https://srb.help/7007
+     117 |  T.assert_type!(sp, SpellBook)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  Got T.untyped originating from:
+    sorbet_test_cases.rb:116:
+     116 |wizard.spell_books.where(id: 1).map do |sp|
+                                                  ^^
+  You may need to add additional `sig` annotations
+Errors: 7
