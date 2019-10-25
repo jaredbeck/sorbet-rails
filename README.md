@@ -260,6 +260,20 @@ Wizard.all.pluck_to_tstruct(TA[WizardStruct].new)  # T::Array[WizardStruct]
 
 This method is based on [pluck_to_hash](https://github.com/girishso/pluck_to_hash) gem.
 
+### How to write signatures for methods returning relations
+
+```ruby
+# app/queries/bacon_query.rb
+class BaconQuery
+  sig { returns(ActiveRecord::Relation) }
+  def chunky
+    Bacon.where(chunky: true)
+  end
+end
+```
+
+It is not currently possible to use `returns(Bacon::ActiveRecord_Relation)`.
+
 ## Extending Model Generation Task with Custom Plugins
 
 `sorbet-rails` support a customizable plugin system that you can use to generate additional RBI for each model. This will be useful to generate RBI for methods dynamically added by gems or private concerns. If you write plugins for public gems, please feel free to contribute it to this repo.
